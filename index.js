@@ -17,11 +17,17 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:3001",
+      "https://bazaarx-rust.vercel.app", // deployed frontend
+      "https://bazaarx-dashboard.onrender.com" ], // deployed dashboard (agar hai)
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
-}));
+  })
+);
 
 app.use(cookieParser());
 app.use(express.json());
